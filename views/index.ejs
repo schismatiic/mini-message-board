@@ -11,7 +11,7 @@
 <body class="bg-black text-white font-extralight">
     <header class="mx-4 my-4">
         <h1 class="text-4xl font-semibold">Mini Message Board</h1>
-        <p>Share your thoughts :D</p>
+        <p>Share your thoughts.</p>
     </header>
     <div class="mx-4">
         <a href="/new"
@@ -20,7 +20,8 @@
     </div>
     <ul class="flex flex-col">
         <% messages.forEach((message)=> { %>
-            <%- include('messageCard', {text: message.text, user: message.user, added: message.added}); %>
+            <%- include('messageCard', {messageId: message.messageId, text: message.text, user: message.user, added:
+                message.added}); %>
                 <% }); %>
     </ul>
 </body>

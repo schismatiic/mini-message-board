@@ -1,5 +1,6 @@
 const messages = [
   {
+    messageId: crypto.randomUUID(),
     text: "Hi there!",
     user: "Amando",
     added: new Date()
@@ -15,6 +16,7 @@ const messages = [
       .replace(",", " -"),
   },
   {
+    messageId: crypto.randomUUID(),
     text: "Hello World!",
     user: "Charles",
     added: new Date()
@@ -31,4 +33,7 @@ const messages = [
   },
 ];
 
-module.exports = { messages };
+const getMessageById = async (id) => {
+  return messages.find((msg) => msg.messageId === id);
+};
+module.exports = { messages, getMessageById };

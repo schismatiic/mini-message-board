@@ -4,11 +4,22 @@ const getMessage = async (req, res) => {
   const messages = await data.messages;
   res.render("index", { messages: messages });
 };
+const getMessageId = async (req, res) => {
+  const { messageId } = req.params;
+  const message = await data.getMessageById(messageId);
+  res.render("message", {
+    user: message.user,
+    text: message.text,
+    added: message.added,
+  });
+};
+
 const createMessage = async (req, res) => {
   const messages = await data.messages;
   const messageText = req.body.messageText;
   const messageUser = req.body.messageUser;
   messages.push({
+    messageId: crypto.randomUUID(),
     text: messageText,
     user: messageUser,
     added: new Date()
@@ -26,4 +37,4 @@ const createMessage = async (req, res) => {
   res.redirect("/");
 };
 
-module.exports = { getMessage, createMessage };
+module.exports = { getMessage, getMessageId, createMessage };
