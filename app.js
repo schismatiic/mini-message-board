@@ -12,7 +12,6 @@ const indexRouter = require("./routes/indexRouter");
 const newRouter = require("./routes/newRouter");
 
 // Load the .env port
-process.loadEnvFile();
 const PORT = process.env.PORT || 3000;
 
 app.use("/new", newRouter);
