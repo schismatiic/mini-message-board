@@ -15,11 +15,12 @@
     <form class="flex flex-col m-4" method="POST" action="/new">
         <label class="flex flex-col">
             Name
-            <input class="border border-white/20 rounded-sm px-4 py-2 mt-2" type="text" placeholder="John Doe">
+            <input name="messageUser" class="border border-white/20 rounded-sm px-4 py-2 mt-2" type="text"
+                placeholder="John Doe">
         </label>
         <label class="flex flex-col mt-6">
             Message
-            <textarea class="border border-white/20 rounded-sm px-4 py-2 mt-2"
+            <textarea name="messageText" class="border border-white/20 rounded-sm px-4 py-2 mt-2"
                 placeholder="Write your message..."></textarea>
         </label>
         <button
