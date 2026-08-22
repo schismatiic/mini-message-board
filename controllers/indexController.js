@@ -1,12 +1,19 @@
 const data = require("../data");
+const CustomNotFoundError = require("../errors/CustomNotFoundError");
 
 const getMessage = async (req, res) => {
   const messages = await data.messages;
+  if (!messages) {
+    throw new CustomNotFoundError("Book not found");
+  }
   res.render("index", { messages: messages });
 };
 const getMessageId = async (req, res) => {
   const { messageId } = req.params;
   const message = await data.getMessageById(messageId);
+  if (!message) {
+    throw new CustomNotFoundError("Book not found");
+  }
   res.render("message", {
     user: message.user,
     text: message.text,

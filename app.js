@@ -17,6 +17,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use("/new", newRouter);
 app.use("/", indexRouter);
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(err.statusCode || 500).send(err.message);
+});
 
 app.listen(PORT, (error) => {
   if (error) {
