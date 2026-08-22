@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New message</title>
+    <link rel="stylesheet" href="/output.css">
+</head>
+
+<body class="bg-black text-white font-extralight">
+    <header class="mx-4 my-4">
+        <h1 class="text-4xl font-semibold">Add a new message</h1>
+    </header>
+    <form class="flex flex-col m-4" method="POST" action="/new">
+        <label class="flex flex-col">
+            Name
+            <input class="border border-white/20 rounded-sm px-4 py-2 mt-2" type="text" placeholder="John Doe">
+        </label>
+        <label class="flex flex-col mt-6">
+            Message
+            <textarea class="border border-white/20 rounded-sm px-4 py-2 mt-2"
+                placeholder="Write your message..."></textarea>
+        </label>
+        <button
+            class="bg-white text-black px-4 py-2 rounded-sm cursor-pointer hover:bg-white/95 active:scale-95 mt-4 w-20 md:w-30"
+            type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
