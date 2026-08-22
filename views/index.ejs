@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Message Board</title>
+    <link rel="stylesheet" href="/output.css">
+</head>
+
+<body class="bg-black text-white font-extralight">
+    <header class="mx-4 my-4">
+        <h1 class="text-4xl font-semibold">Mini Message Board</h1>
+        <p>Share your thoughts :D</p>
+    </header>
+    <div class="mx-4">
+        <a href="/new"
+            class="bg-white text-black px-4 py-2 rounded-sm cursor-pointer hover:bg-white/95 active:scale-95">+ New
+            message</a>
+    </div>
+    <ul class="flex flex-col">
+        <% messages.forEach((message)=> { %>
+            <%- include('messageCard', {text: message.text, user: message.user, added: message.added}); %>
+                <% }); %>
+    </ul>
+</body>
+
+</html>
