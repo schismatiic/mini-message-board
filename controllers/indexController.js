@@ -1,47 +1,24 @@
-const data = require("../data");
+const db = require("../db/queries");
 const CustomNotFoundError = require("../errors/CustomNotFoundError");
 
-const getMessage = async (req, res) => {
-  const messages = await data.messages;
+const getMessages = async (req, res) => {
+  const messages = await db.getAllMessages();
   if (!messages) {
-    throw new CustomNotFoundError("Book not found");
+    throw new CustomNotFoundError("Messages not found");
   }
   res.render("index", { messages: messages });
 };
 const getMessageId = async (req, res) => {
-  const { messageId } = req.params;
-  const message = await data.getMessageById(messageId);
+  const { id } = req.params;
+  const message = await db.getMessage(id);
   if (!message) {
-    throw new CustomNotFoundError("Book not found");
+    throw new CustomNotFoundError("Message not found");
   }
   res.render("message", {
-    user: message.user,
+    username: message.username,
     text: message.text,
     added: message.added,
   });
 };
 
-const createMessage = async (req, res) => {
-  const messages = await data.messages;
-  const messageText = req.body.messageText;
-  const messageUser = req.body.messageUser;
-  messages.push({
-    messageId: crypto.randomUUID(),
-    text: messageText,
-    user: messageUser,
-    added: new Date()
-      .toLocaleString("en-GB", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-      })
-      .replace(/\//g, "-")
-      .replace(",", " -"),
-  });
-  res.redirect("/");
-};
-
-module.exports = { getMessage, getMessageId, createMessage };
+module.exports = { getMessages, getMessageId };

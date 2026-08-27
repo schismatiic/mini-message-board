@@ -20,7 +20,7 @@
     </div>
     <ul class="flex flex-col">
         <% messages.forEach((message)=> { %>
-            <%- include('messageCard', {messageId: message.messageId, text: message.text, user: message.user, added:
+            <%- include('messageCard', {id: message.id, text: message.text, username: message.username, added:
                 message.added}); %>
                 <% }); %>
     </ul>
