@@ -24,6 +24,7 @@
     --font-weight-extralight: 200;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
+    --font-weight-bold: 700;
     --radius-sm: 0.25rem;
     --radius-lg: 0.5rem;
     --default-font-family: var(--font-sans);
@@ -224,6 +225,12 @@
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
+  .w-100 {
+    width: calc(var(--spacing) * 100);
+  }
+  .w-fit {
+    width: fit-content;
+  }
   .flex-1 {
     flex: 1;
   }
@@ -307,6 +314,10 @@
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
   }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
   .font-extralight {
     --tw-font-weight: var(--font-weight-extralight);
     font-weight: var(--font-weight-extralight);
@@ -359,6 +370,9 @@
     }
     .md\:w-30 {
       width: calc(var(--spacing) * 30);
+    }
+    .md\:w-120 {
+      width: calc(var(--spacing) * 120);
     }
   }
 }
