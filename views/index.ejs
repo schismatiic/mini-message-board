@@ -8,21 +8,27 @@
     <link rel="stylesheet" href="/output.css">
 </head>
 
-<body class="bg-black text-white font-extralight ">
-    <header class="mx-4 my-4">
-        <h1 class="text-4xl font-semibold">Mini Message Board</h1>
-        <p>Share your thoughts.</p>
-    </header>
-    <div class="mx-4">
-        <a href="/new" class="bg-white text-black px-4 py-2 cursor-pointer hover:bg-white/95 active:scale-95">+ New
-            message</a>
+<body class="flex flex-col min-h-screen bg-black text-white font-extralight ">
+    <div>
+        <header class="mx-4 my-4">
+            <h1 class="text-4xl font-semibold">Mini Message Board</h1>
+            <p>Share your thoughts.</p>
+        </header>
+        <div class="mx-4">
+            <a href="/new" class="bg-white text-black px-4 py-2 cursor-pointer hover:bg-white/95 active:scale-95">+ New
+                message</a>
+        </div>
     </div>
-    <ul class="flex flex-col border border-white/20 m-4 mt-6 p-4 gap-4">
-        <% messages.forEach((message)=> { %>
-            <%- include('messageCard', {id: message.id, text: message.text, username: message.username, added:
-                message.added}); %>
-                <% }); %>
-    </ul>
+    <main class="flex-1">
+        <ul class="flex flex-col border border-white/20 m-4 mt-6 p-4 gap-4">
+            <% messages.forEach((message)=> { %>
+                <%- include('messageCard', {id: message.id, text: message.text, username: message.username, added:
+                    message.added}); %>
+                    <% }); %>
+        </ul>
+    </main>
+
+    <%- include('footer') %>
 </body>
 
 </html>
